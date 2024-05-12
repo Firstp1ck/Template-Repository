@@ -7,12 +7,13 @@ python -m venv .env
 :: .env deactivieren:
 .env\Scripts\deactivate
 
+:: .env löschen:
+rd /s /q .env
+
+
 
 :: Libs installieren:
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org
-
-:: .env löschen:
-rd /s /q .env
 
 :: Requirements erstellen:
 pip freeze > requirements.txt
@@ -24,16 +25,22 @@ pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org -r req
 pip list --outdated
 
 :: update all (PowerShell):
-pip list --outdated | Select-String -Pattern '^\S+' | ForEach-Object { $_ -replace ' .*$','' } | ForEach-Object { pip install --upgrade $_ }
+pip list --outdated | Select-String -Pattern '^\S+' | ForEach-Object { $_ -replace ' .*$','' } | ForEach-Object { pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade $_ }
 
 :: update all (bash):
-pip list --outdated --format=freeze | cut -d '=' -f1 | xargs -n1 pip install --upgrade
+pip list --outdated --format=freeze | cut -d '=' -f1 | xargs -n1 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade
+
 
 
 :: Creating a executable:
 pip freeze > requirements.txt
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pyinstaller
-pyinstaller --onefile Main.py
+
+pyinstaller --onefile Main.py 
+or
+pyinstaller --onedir Main.py
+
+
 
 :: Required Libs:
 Setuptools
@@ -44,9 +51,27 @@ python-docx         ::working with Word
 openpyxl            ::working with Excel
 PyPDF2              ::working with PDF
 pyautogui           ::Mouse and Keyboard control
+PyGetWindow	    ::Windows Window access
 tkcalendar          ::Tk Kalender
+workalendar	    ::date calculation, Region specific
 msoffcrypto-tool    ::Excel Passwortschutz entfernen
 customtkinter       ::Schönes Tkinter
 pandas              ::Working with Excel and Data
 pdf2docx            ::PDF converter/data extraction to Word
 bcrypt              ::Hashing
+numpy		    ::Data Analysis
+openai		    ::Openai (ChatGPT) API usage
+pillow		    ::Image recognition
+PyMuPDF		    ::data extraction, analysis, conversion & manipulation of PDF and other Documents
+pywin32		    ::Extended API for Windows
+requests	    ::URL data request usage
+watchdog	    ::Windows System API for checking files and directories for changes
+kivy		    ::App distribtion Plattform for all OS (Win/Mac/Android)
+matplotlib	    ::creating static, interactive and animated visualisations
+pygame		    ::For gaming :-)
+pytube		    ::Youtube interactions
+moviepy		    ::Video interactions
+playwright	    ::Website interaction (Makros)
+opencv		    ::image processing/computer vision
+pyperclip	    ::copy/paste from/to clipboard
+lxml		    ::processing large XML files (HTML parser)
