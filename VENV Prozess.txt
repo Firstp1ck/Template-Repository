@@ -1,0 +1,48 @@
+:: .env erstellen:
+python -m venv .env
+
+:: .env aktivieren:
+.env\Scripts\activate
+
+:: .env deactivieren:
+.env\Scripts\deactivate
+
+
+:: Libs installieren:
+pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org
+
+:: .env löschen:
+rd /s /q .env
+
+:: Requirements erstellen:
+pip freeze > requirements.txt
+
+:: Requirements installieren:
+pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements.txt
+
+:: show outdated:
+pip list --outdated
+
+:: update all (PowerShell):
+pip list --outdated | Select-String -Pattern '^\S+' | ForEach-Object { $_ -replace ' .*$','' } | ForEach-Object { pip install --upgrade $_ }
+
+:: update all (bash):
+pip list --outdated --format=freeze | cut -d '=' -f1 | xargs -n1 pip install --upgrade
+
+
+:: Creating a executable:
+pip freeze > requirements.txt
+pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pyinstaller
+pyinstaller --onefile Main.py
+
+:: most used Libs:
+pyautogui
+msoffcrypto-tool
+customtkinter
+python-docx
+pandas
+pdf2docx
+tkcalendar
+openpyxl
+bcrypt
+PyPDF2
