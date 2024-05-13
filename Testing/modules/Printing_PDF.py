@@ -7,12 +7,10 @@ import config
 def save_pdf_with_unique_number(content: bytes, folder_path: str, base_filename: str) -> str:
     """
     Saves a PDF file to the specified folder with a unique consecutive number in the filename.
-
     Args:
     content (bytes): The content of the PDF file.
     folder_path (str): The path to the folder where the PDF should be saved.
     base_filename (str): The base name of the PDF file to save.
-
     Returns:
     str: The full path to the saved PDF file.
     """
@@ -37,7 +35,6 @@ def save_pdf_with_unique_number(content: bytes, folder_path: str, base_filename:
 def print_pdf(file_path: str) -> None:
     """
     Prints the PDF file using the default printer.
-
     Args:
     file_path (str): The path to the PDF file to be printed.
     """
