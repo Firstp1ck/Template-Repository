@@ -36,11 +36,11 @@ try:
     avl_pvl_pfad = config['paths']['AVL_PVL']
     validate_file_path(avl_pvl_pfad)
 
-    pdf_save = config['paths']['PDF_SAVE']
-    validate_file_path(pdf_save)
+    save = config['paths']['SAVE']
+    validate_file_path(save)
 
-    pdf_input = config['paths']['PDF_INPUT']
-    validate_file_path(pdf_input)    
+    input = config['paths']['INPUT']
+    validate_file_path(input)    
 
 except KeyError as e:
     logging.error(f"Missing section or key in configuration file: {e}")

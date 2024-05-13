@@ -1,14 +1,14 @@
 :: .env erstellen:
-python -m venv .env
+python -m venv venv
 
-:: .env aktivieren:
-.env\Scripts\activate
+:: venv aktivieren:
+venv\Scripts\activate
 
-:: .env deactivieren:
-.env\Scripts\deactivate
+:: venv deactivieren:
+venv\Scripts\deactivate
 
-:: .env löschen:
-rd /s /q .env
+:: venv löschen:
+rd /s /q venv
 
 
 
