@@ -1,84 +1,109 @@
-import os
-import subprocess
-from pathlib import Path
+import docx
+import fitz  # PyMuPDF
+import logging
+from typing import Union
+import configparser
+from config import validate_file_path
 
-def read_file_content(file_path: str) -> bytes:
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def load_document(file_path: str) -> Union[docx.Document, fitz.Document]:
     """
-    Reads the content of a file from the specified path and returns it.
-    Args:
-    file_path (str): The path of the file to read.
-    Returns:
-    bytes: The content of the file.
+    Load a DOCX or PDF document.
     """
     try:
-        with open(file_path, 'rb') as file:
-            return file.read()
-    except FileNotFoundError:
-        print("The file was not found. Please check the path and try again.")
-        return None
-    except IOError as e:
-        print(f"An error occurred while reading the file: {e}")
-        return None
+        if file_path.endswith('.docx'):
+            return docx.Document(file_path)
+        elif file_path.endswith('.pdf'):
+            return fitz.open(file_path)
+        else:
+            raise ValueError("Unsupported file format. Only DOCX and PDF are supported.")
+    except Exception as e:
+        logging.error(f"Error loading document: {e}")
+        raise
 
-def save_file_with_unique_number(content: bytes, folder_path: str, base_filename: str, file_type: str) -> str:
+def modify_document(doc: Union[docx.Document, fitz.Document], new_text: str):
     """
-    Saves a file to the specified folder with a unique consecutive number in the filename.
-    Args:
-    content (bytes): The content of the file.
-    folder_path (str): The path to the folder where the file should be saved.
-    base_filename (str): The base name of the file to save.
-    file_type (str): The type of the file ('pdf' or 'docx').
-    Returns:
-    str: The full path to the saved file.
-    """
-    # Ensure the folder exists
-    Path(folder_path).mkdir(parents=True, exist_ok=True)
-    
-    # Determine the next available file number
-    suffix = f".{file_type}"
-    existing_files = [f for f in os.listdir(folder_path) if f.startswith(base_filename) and f.endswith(suffix)]
-    numbers = [int(f[len(base_filename):-len(suffix)]) for f in existing_files if f[len(base_filename):-len(suffix)].isdigit()]
-    next_number = max(numbers) + 1 if numbers else 1
-    
-    # Construct the file path with the unique number
-    file_name = f"{base_filename}{next_number}{suffix}"
-    file_path = os.path.join(folder_path, file_name)
-    
-    # Write the file
-    with open(file_path, 'wb') as file:
-        file.write(content)
-    
-    return file_path
-
-def print_file(file_path: str) -> None:
-    """
-    Prints the file using the default printer.
-    Args:
-    file_path (str): The path to the file to be printed.
+    Modify the document by adding new text.
     """
     try:
-        # Windows command to print files
-        subprocess.run(['start', '', '/b', file_path], shell=True, check=True)
-    except subprocess.CalledProcessError as e:
-        print(f"Failed to print the file: {e}")
+        if isinstance(doc, docx.Document):
+            doc.add_paragraph(new_text)
+        elif isinstance(doc, fitz.Document):
+            for page in doc:
+                page.insert_text((72, 72), new_text)  # Adding text at (72, 72) coordinates
+        else:
+            raise ValueError("Unsupported document type.")
+    except Exception as e:
+        logging.error(f"Error modifying document: {e}")
+        raise
 
-# Example usage:
+def save_document(doc: Union[docx.Document, fitz.Document], new_file_path: str):
+    """
+    Save the modified document to a new file.
+    """
+    try:
+        if isinstance(doc, docx.Document):
+            doc.save(new_file_path)
+        elif isinstance(doc, fitz.Document):
+            doc.save(new_file_path)
+        else:
+            raise ValueError("Unsupported document type.")
+    except Exception as e:
+        logging.error(f"Error saving document: {e}")
+        raise
+
+def print_document(doc: Union[docx.Document, fitz.Document]):
+    """
+    Print the document contents.
+    """
+    try:
+        if isinstance(doc, docx.Document):
+            for paragraph in doc.paragraphs:
+                print(paragraph.text)
+        elif isinstance(doc, fitz.Document):
+            for page in doc:
+                print(page.get_text())
+        else:
+            raise ValueError("Unsupported document type.")
+    except Exception as e:
+        logging.error(f"Error printing document: {e}")
+        raise
+
+config = configparser.ConfigParser()
+config_file_path = r'Prod\config.ini' # relative path
+config.read(config_file_path)
+
+save = config['paths']['SAVE']
+validate_file_path(save)
+
+input = config['paths']['INPUT']
+validate_file_path(input)
+
+def main():
+    file_path = 'your_document.docx'  # or 'your_document.pdf'
+    new_file_path = 'modified_document.docx'  # or 'modified_document.pdf'
+    new_text = "This is the new text to be added."
+
+    try:
+        # Load the document
+        doc = load_document(file_path)
+        logging.info(f"Loaded document: {file_path}")
+
+        # Modify the document
+        modify_document(doc, new_text)
+        logging.info("Document modified successfully.")
+
+        # Save the document to a new file
+        save_document(doc, new_file_path)
+        logging.info(f"Document saved to new file: {new_file_path}")
+
+        # Print the document
+        print_document(doc)
+        logging.info("Document printed successfully.")
+    except Exception as e:
+        logging.error(f"An error occurred: {e}")
+
 if __name__ == "__main__":
-    # User input for file type and file path
-    file_type = input("Enter the file type ('pdf' or 'docx'): ").lower()
-    file_path_input = input("Enter the full path to the file you want to save and print: ")
-
-    if file_type not in ['pdf', 'docx']:
-        print("Invalid file type entered.")
-    else:
-        # Read the content of the file provided by the user
-        content = read_file_content(file_path_input)
-        if content is not None:
-            # Save and print the file
-            try:
-                folder_path = 'C:/path/to/save'
-                base_filename = 'example'
-                saved_file_path = save_file_with_unique_number(content, folder_path, base_filename, file_type)
-                print_file(saved_file_path)
-            except Exception as e:
-                print(f"An error occurred: {e}")
+    main()
