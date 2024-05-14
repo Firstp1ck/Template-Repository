@@ -7,7 +7,7 @@ import os
 logging.basicConfig(filename='app.log', filemode='w', level=logging.DEBUG, format='%(name)s - %(levelname)s - %(message)s')
 
 config = configparser.ConfigParser()
-config_file_path = r'Prod\config.ini' # relative path
+config_file_path = r'Testing\config.ini' # relative path
 
 # Function to validate file paths
 def validate_file_path(path):
@@ -27,20 +27,20 @@ try:
     logging.info("Configuration file has been read successfully")
 
     # Retrieve paths from the config and validate each
-    vorlage_form_1773_pfad = config['paths']['form_1773']
-    validate_file_path(vorlage_form_1773_pfad)
+    pdf_form = config['paths']['PDF_FORM']
+    validate_file_path(pdf_form)
 
-    vorlage_form_1778_pfad = config['paths']['form_1778']
-    validate_file_path(vorlage_form_1778_pfad)
+    word_form = config['paths']['WORD_FORM']
+    validate_file_path(word_form)
 
-    avl_pvl_pfad = config['paths']['AVL_PVL']
-    validate_file_path(avl_pvl_pfad)
+    input_excel = config['paths']['INPUT_EXCEL']
+    validate_file_path(input_excel)
 
-    save = config['paths']['SAVE']
-    validate_file_path(save)
+    input_db = config['paths']['INPUT_DB']
+    validate_file_path(input_db)
 
-    input = config['paths']['INPUT']
-    validate_file_path(input)    
+    output = config['paths']['OUTPUT']
+    validate_file_path(output)    
 
 except KeyError as e:
     logging.error(f"Missing section or key in configuration file: {e}")
