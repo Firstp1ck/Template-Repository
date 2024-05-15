@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='Template_Repo',
-    version='0.1.0',
+    name='Template-Repo',
+    version='0.3.2',
     author='Firstpick',
     author_email='kortharshadowbreath@gmail.com',
     description='Template for all my Repositorys',
