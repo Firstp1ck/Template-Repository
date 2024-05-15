@@ -1,0 +1,34 @@
+Project_Root/
+│
+├── .gitignore
+├── .env
+├── setup_script.py
+├── requirements.txt
+├── README.md
+├── LICENSE
+│
+├── Prod/
+│   ├── main.py
+│   ├── config.ini
+│   ├── start.bat
+│   ├── app.log
+│   ├── Data/
+│   ├── Modules/
+│   ├── Output/
+│   └── Templates/
+│
+├── Testing/
+│   ├── main.py
+│   ├── config.ini
+│   ├── start.bat
+│   ├── app.log
+│   ├── Data/
+│   ├── Modules/
+│   ├── Output/
+│   └── Templates/
+│
+├── Venv/
+│
+└── Tests/
+    ├── test_main.py
+    ├── test_data.py

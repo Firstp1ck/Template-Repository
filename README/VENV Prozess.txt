@@ -13,7 +13,7 @@ rd /s /q venv
 
 
 :: Libs installieren:
-pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org
+pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org python-dotenv Setuptools pyinstaller
 
 :: Requirements erstellen:
 pip freeze > requirements.txt
@@ -35,7 +35,6 @@ pip list --outdated --format=freeze | cut -d '=' -f1 | xargs -n1 pip install --t
 :: Creating a executable:
 pip freeze > requirements.txt
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pyinstaller
-
 pyinstaller --onefile Main.py 
 or
 pyinstaller --onedir Main.py
@@ -45,33 +44,34 @@ pyinstaller --onedir Main.py
 :: Required Libs:
 Setuptools
 python-dotenv
+pyinstaller
 
 :: most used Libs:
 python-docx         ::working with Word
 openpyxl            ::working with Excel
 PyPDF2              ::working with PDF
 pyautogui           ::Mouse and Keyboard control
-PyGetWindow	    ::Windows Window access
+PyGetWindow	        ::Windows Window access
 tkcalendar          ::Tk Kalender
-workalendar	    ::date calculation, Region specific
+workalendar	        ::date calculation, Region specific
 msoffcrypto-tool    ::Excel Passwortschutz entfernen
 customtkinter       ::Schönes Tkinter
 pandas              ::Working with Excel and Data
 pdf2docx            ::PDF converter/data extraction to Word
 bcrypt              ::Hashing
-numpy		    ::Data Analysis
-openai		    ::Openai (ChatGPT) API usage
-pillow		    ::Image recognition
-PyMuPDF		    ::data extraction, analysis, conversion & manipulation of PDF and other Documents
-pywin32		    ::Extended API for Windows
-requests	    ::URL data request usage
-watchdog	    ::Windows System API for checking files and directories for changes
-kivy		    ::App distribtion Plattform for all OS (Win/Mac/Android)
-matplotlib	    ::creating static, interactive and animated visualisations
-pygame		    ::For gaming :-)
-pytube		    ::Youtube interactions
-moviepy		    ::Video interactions
-playwright	    ::Website interaction (Makros)
-opencv		    ::image processing/computer vision
-pyperclip	    ::copy/paste from/to clipboard
-lxml		    ::processing large XML files (HTML parser)
+numpy		        ::Data Analysis
+openai		        ::Openai (ChatGPT) API usage
+pillow		        ::Image recognition
+PyMuPDF		        ::data extraction, analysis, conversion & manipulation of PDF and other Documents
+pywin32		        ::Extended API for Windows
+requests	        ::URL data request usage
+watchdog	        ::Windows System API for checking files and directories for changes
+kivy		        ::App distribtion Plattform for all OS (Win/Mac/Android)
+matplotlib	        ::creating static, interactive and animated visualisations
+pygame		        ::For gaming :-)
+pytube		        ::Youtube interactions
+moviepy		        ::Video interactions
+playwright	        ::Website interaction (Makros)
+opencv		        ::image processing/computer vision
+pyperclip	        ::copy/paste from/to clipboard
+lxml		        ::processing large XML files (HTML parser)
