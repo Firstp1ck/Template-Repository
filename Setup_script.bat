@@ -7,11 +7,11 @@ if %errorlevel% neq 0 (
 )
 
 REM Create virtual environment
-python -m venv .env
+python -m venv venv
 echo Created virtual environment.
 
 REM Activate the virtual environment
-call .env\Scripts\activate.bat
+call venv\Scripts\activate.bat
 echo Activated virtual environment.
 
 REM Install dependencies
