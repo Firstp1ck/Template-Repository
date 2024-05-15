@@ -47,18 +47,19 @@ python-dotenv
 pyinstaller
 
 :: most used Libs:
-python-docx         ::working with Word
-openpyxl            ::working with Excel
-PyPDF2              ::working with PDF
-pyautogui           ::Mouse and Keyboard control
-PyGetWindow	        ::Windows Window access
-tkcalendar          ::Tk Kalender
-workalendar	        ::date calculation, Region specific
-msoffcrypto-tool    ::Excel Passwortschutz entfernen
-customtkinter       ::Schönes Tkinter
-pandas              ::Working with Excel and Data
-pdf2docx            ::PDF converter/data extraction to Word
-bcrypt              ::Hashing
+python-docx         	::working with Word
+openpyxl            	::working with Excel
+PyPDF2              	::working with PDF
+PyMuPDF		    	::data extraction, analysis, conversion & manipulation of PDF and other Documents
+pyautogui           	::Mouse and Keyboard control
+PyGetWindow	    	::Windows Window access
+tkcalendar          	::Tk Kalender
+workalendar	    	::date calculation, Region specific
+msoffcrypto-tool    	::Excel Passwortschutz entfernen
+customtkinter       	::Schönes Tkinter
+pandas              	::Working with Excel and Data
+pdf2docx            	::PDF converter/data extraction to Word
+bcrypt              	::Hashing
 numpy		        ::Data Analysis
 openai		        ::Openai (ChatGPT) API usage
 pillow		        ::Image recognition
