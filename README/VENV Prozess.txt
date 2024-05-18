@@ -30,7 +30,10 @@ pip list --outdated | Select-String -Pattern '^\S+' | ForEach-Object { $_ -repla
 :: update all (bash):
 pip list --outdated --format=freeze | cut -d '=' -f1 | xargs -n1 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade
 
-
+::Check Python Version
+python --version
+::Check Python locations
+where python
 
 :: Creating a executable:
 pip freeze > requirements.txt
