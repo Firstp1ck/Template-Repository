@@ -10,8 +10,6 @@ venv\Scripts\deactivate
 :: venv löschen:
 rd /s /q venv
 
-
-
 :: Libs installieren:
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org python-dotenv Setuptools pyinstaller
 
