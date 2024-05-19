@@ -48,33 +48,33 @@ python-dotenv
 pyinstaller
 
 :: most used Libs:
-python-docx         	::working with Word
-openpyxl            	::working with Excel
-PyPDF2              	::working with PDF
-PyMuPDF		    	::data extraction, analysis, conversion & manipulation of PDF and other Documents
-pyautogui           	::Mouse and Keyboard control
-PyGetWindow	    	::Windows Window access
-tkcalendar          	::Tk Kalender
-workalendar	    	::date calculation, Region specific
+bcrypt                  ::Hashing
+customtkinter           ::Schönes Tkinter
+kivy	                ::App distribtion Plattform for all OS (Win/Mac/Android)
+lxml	                ::processing large XML files (HTML parser)
+matplotlib	            ::creating static, interactive and animated visualisations
+moviepy	                ::Video interactions
 msoffcrypto-tool    	::Excel Passwortschutz entfernen
-customtkinter       	::Schönes Tkinter
+numpy	                ::Data Analysis
+openai	                ::Openai (ChatGPT) API usage
+opencv	                ::image processing/computer vision
+openpyxl            	::working with Excel
 pandas              	::Working with Excel and Data
 pdf2docx            	::PDF converter/data extraction to Word
-bcrypt              	::Hashing
-numpy		        ::Data Analysis
-openai		        ::Openai (ChatGPT) API usage
-pillow		        ::Image recognition
-PyMuPDF		        ::data extraction, analysis, conversion & manipulation of PDF and other Documents
-pywin32		        ::Extended API for Windows
-requests	        ::URL data request usage
-watchdog	        ::Windows System API for checking files and directories for changes
-kivy		        ::App distribtion Plattform for all OS (Win/Mac/Android)
-matplotlib	        ::creating static, interactive and animated visualisations
-pygame		        ::For gaming :-)
-pytube		        ::Youtube interactions
-moviepy		        ::Video interactions
-playwright	        ::Website interaction (Makros)
-opencv		        ::image processing/computer vision
-pyperclip	        ::copy/paste from/to clipboard
-lxml		        ::processing large XML files (HTML parser)
-reportlab           ::implemented GUI Image
+pillow	                ::Image recognition
+playwright	            ::Website interaction (Makros)
+pyautogui           	::Mouse and Keyboard control
+pygame	                ::For gaming :-)
+PyGetWindow	            ::Windows Window access
+PyMuPDF	                ::data extraction, analysis, conversion & manipulation of PDF and other Documents
+PyMuPDF	                ::data extraction, analysis, conversion & manipulation of PDF and other Documents
+PyPDF2              	::working with PDF
+pyperclip	            ::copy/paste from/to clipboard
+python-docx         	::working with Word
+pytube	                ::Youtube interactions
+pywin32	                ::Extended API for Windows
+reportlab	            ::implemented GUI Image
+requests	            ::URL data request usage
+tkcalendar          	::Tk Kalender
+watchdog	            ::Windows System API for checking files and directories for changes
+workalendar	            ::date calculation, Region specific
