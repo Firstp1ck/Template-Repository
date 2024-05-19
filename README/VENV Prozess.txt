@@ -77,3 +77,4 @@ playwright	        ::Website interaction (Makros)
 opencv		        ::image processing/computer vision
 pyperclip	        ::copy/paste from/to clipboard
 lxml		        ::processing large XML files (HTML parser)
+reportlab           ::implemented GUI Image
