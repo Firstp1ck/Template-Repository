@@ -55,6 +55,7 @@ lxml	                ::processing large XML files (HTML parser)
 matplotlib	            ::creating static, interactive and animated visualisations
 moviepy	                ::Video interactions
 msoffcrypto-tool    	::Excel Passwortschutz entfernen
+nltk                    ::tokenizer
 numpy	                ::Data Analysis
 openai	                ::Openai (ChatGPT) API usage
 opencv	                ::image processing/computer vision
@@ -66,7 +67,6 @@ playwright	            ::Website interaction (Makros)
 pyautogui           	::Mouse and Keyboard control
 pygame	                ::For gaming :-)
 PyGetWindow	            ::Windows Window access
-PyMuPDF	                ::data extraction, analysis, conversion & manipulation of PDF and other Documents
 PyMuPDF	                ::data extraction, analysis, conversion & manipulation of PDF and other Documents
 PyPDF2              	::working with PDF
 pyperclip	            ::copy/paste from/to clipboard
