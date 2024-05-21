@@ -39,8 +39,8 @@ if "!install_needed!"=="true" (
 del temp_pip_list.txt
 
 :: Führen Sie Ihr Python-Skript aus. Ersetzen Sie 'Login.py' durch den Namen Ihres Skripts, falls anders.
-echo Starte Python-Skript Login.py...
-python Login.py
+echo Starte Python-Skript Main.py...
+python Main.py
 
 echo.
 echo Skript wurde ausgefuehrt. Fenster schliessen oder weitere Befehle eingeben.
