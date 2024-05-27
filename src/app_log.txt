@@ -1,0 +1,7 @@
+root - INFO - Environment variables loaded successfully.
+root - INFO - Configuration file has been read successfully
+root - INFO - File validated and exists: Testing\Templates\Test_pdf_template.pdf
+root - INFO - File validated and exists: Testing\Templates\Test_word-template.docx
+root - INFO - File validated and exists: Testing\Data\Test_exceldata.xlsx
+root - INFO - File validated and exists: Testing\Data\Test_database.sqlite
+root - INFO - File validated and exists: Testing\Out\Test_Word_output.docx
