@@ -1,6 +1,8 @@
 import configparser
 import logging
 import os
+from modules.Module_config import validate_file_path
+from modules.Module_env import load_environment_variables, get_env_variable
 
 # Set up logging
 logging.basicConfig(filename='app.log', filemode='w', level=logging.DEBUG, format='%(name)s - %(levelname)s - %(message)s')
@@ -8,13 +10,17 @@ logging.basicConfig(filename='app.log', filemode='w', level=logging.DEBUG, forma
 config = configparser.ConfigParser()
 config_file_path = r'Testing\config.ini' # relative path
 
-# Function to validate file paths
-def validate_file_path(path):
-    if not os.path.exists(path):
-        logging.error(f"File not found: {path}")
-        raise FileNotFoundError(f"The required file does not exist: {path}")
-    else:
-        logging.info(f"File validated and exists: {path}")
+load_environment_variables()
+api_key = get_env_variable('API_KEY')
+database_url = get_env_variable('DATABASE_URL')
+secret_key = get_env_variable('SECRET_KEY')
+
+if api_key and database_url and secret_key:
+    print(f"API Key: {api_key}")
+    print(f"Database URL: {database_url}")
+    print(f"Secret Key: {secret_key}")
+else:
+    logging.error("One or more environment variables are missing.")
 
 # Read and process the configuration
 try:

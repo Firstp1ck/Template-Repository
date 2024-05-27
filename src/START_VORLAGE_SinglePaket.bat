@@ -1,13 +1,13 @@
 @echo off
 :: Überprüfen, ob das Paket bereits installiert ist.
 
-python -m pip list | findstr /C:"PAKET" > nul
+python -m pip list | findstr /C:"python-dotenv" > nul
 
 :: Wenn das Paket nicht gefunden wurde, führe die Installation aus.
 if errorlevel 1 (
-    echo Paket 'PAKET' wird installiert...
+    echo Paket 'python-detenv' wird installiert...
 
-    python -m pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org PAKET
+    python -m pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org python-dotenv
 
 ) else (
     echo Paket ist bereits installiert.
