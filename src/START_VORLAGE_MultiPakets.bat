@@ -38,7 +38,7 @@ if "!install_needed!"=="true" (
 :: Löschen der temporären Datei
 del temp_pip_list.txt
 
-:: Führen Sie Ihr Python-Skript aus. Ersetzen Sie 'Login.py' durch den Namen Ihres Skripts, falls anders.
+:: Führen Sie Ihr Python-Skript aus. Ersetzen Sie 'Main.py' durch den Namen Ihres Skripts, falls anders.
 echo Starte Python-Skript Main.py...
 python Main.py
 
