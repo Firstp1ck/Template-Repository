@@ -9,7 +9,7 @@ config = configparser.ConfigParser()
 config_file_path = r'Testing\config.ini' # relative path
 
 # Function to validate file paths
-def validate_file_path(path):
+def validate_file_path(path: str):
     if not os.path.exists(path):
         logging.error(f"File not found: {path}")
         raise FileNotFoundError(f"The required file does not exist: {path}")
