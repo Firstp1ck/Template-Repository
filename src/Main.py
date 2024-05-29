@@ -8,7 +8,7 @@ from modules.Module_env import load_environment_variables, get_env_variable
 logging.basicConfig(filename='app.log', filemode='w', level=logging.DEBUG, format='%(name)s - %(levelname)s - %(message)s')
 
 config = configparser.ConfigParser()
-config_file_path = r'config.ini' # relative path
+config_file_path = r'src\config.ini' # relative path
 
 load_environment_variables()
 api_key = get_env_variable('API_KEY')

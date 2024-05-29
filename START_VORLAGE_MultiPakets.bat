@@ -40,7 +40,7 @@ del temp_pip_list.txt
 
 :: Führen Sie Ihr Python-Skript aus. Ersetzen Sie 'Main.py' durch den Namen Ihres Skripts, falls anders.
 echo Starte Python-Skript Main.py...
-python Main.py
+python "src\Main.py"
 
 echo.
 echo Skript wurde ausgefuehrt. Fenster schliessen oder weitere Befehle eingeben.

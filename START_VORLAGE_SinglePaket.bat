@@ -14,7 +14,7 @@ if errorlevel 1 (
 )
 
 :: Führen Sie Ihr Python-Skript aus. Ersetzen Sie 'Main.py' durch den Namen Ihres Skripts.
-python Main.py
+python "src\Main.py"
 
 echo.
 echo Skript wurde ausgefuehrt. Fenster schliessen oder weitere Befehle eingeben.
