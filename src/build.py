@@ -16,17 +16,23 @@ build_exe_options = {
     # "excludes": ["tkinter"],  # Exclude any packages not needed
     "include_files": [
         os.path.join(os.path.dirname(__file__), "config.ini"),
+        os.path.join(os.path.dirname(__file__), ".env"),
         (os.path.join(os.path.dirname(__file__), "Templates"), "Templates"),
-        (os.path.join(os.path.dirname(__file__), "Data"), "Data")
+        (os.path.join(os.path.dirname(__file__), "Data"), "Data"),
+        (os.path.join(os.path.dirname(__file__), "Out"), "Out"),
+        (os.path.join(os.path.dirname(__file__), "modules"), "modules")
     ]
 }
+# with GUI
+# base = "Win32GUI" if sys.platform == "command" else None 
 
-base = "Win32GUI" if sys.platform == "win32" else None
+# without GUI
+base = "Console"
 
 setup(
-    name="YourAppName",
+    name="Test-Template_Repository",
     version="0.1",
-    description="Your Application Description",
+    description="Testing exe with Template Repository",
     options={"build_exe": build_exe_options},
-    executables=[Executable("main.py", base=base)]
+    executables=[Executable("Main.py", base=base)]
 )
