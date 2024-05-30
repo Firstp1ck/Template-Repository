@@ -13,7 +13,7 @@ packages = [pkg.split('==')[0] for pkg in packages]  # This removes version cons
 
 build_exe_options = {
     "packages": packages,  # All packages from requirements.txt
-    "excludes": ["tkinter"],  # Exclude any packages not needed
+    # "excludes": ["tkinter"],  # Exclude any packages not needed
     "include_files": [
         os.path.join(os.path.dirname(__file__), "config.ini"),
         (os.path.join(os.path.dirname(__file__), "Templates"), "Templates"),
