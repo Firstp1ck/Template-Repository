@@ -11,7 +11,7 @@ venv\Scripts\deactivate
 rd /s /q venv
 
 :: Libs installieren:
-pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org python-dotenv Setuptools pyinstaller
+pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org python-dotenv Setuptools cx_Freeze
 
 :: Requirements erstellen:
 pip freeze > requirements.txt
@@ -33,12 +33,18 @@ python --version
 ::Check Python locations
 where python
 
-:: Creating a executable:
+:: Creating a executable with pyinstaller:
 pip freeze > requirements.txt
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pyinstaller
 pyinstaller --onefile Main.py 
 or
 pyinstaller --onedir Main.py
+
+:: Creating a executable with cx_Freeze:
+- add Main.py to build.py
+- add folders to build.py
+- add config.ini to build.py
+- add requirements to build.py
 
 
 
