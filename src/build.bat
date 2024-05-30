@@ -1,5 +1,5 @@
 @echo off
 echo Building the Python application...
-python setup.py build
+python build.py build
 echo Build process completed!
 pause
