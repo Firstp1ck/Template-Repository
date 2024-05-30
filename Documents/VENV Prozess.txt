@@ -84,3 +84,10 @@ requests	            ::URL data request usage
 tkcalendar          	::Tk Kalender
 watchdog	            ::Windows System API for checking files and directories for changes
 workalendar	            ::date calculation, Region specific
+
+Reset your Site-Packages:
+-Delete everything in C:\Users\USERNAME\AppData\Local\Programs\Python\Python312\Lib\site-packages
+except:
+- README.txt
+- pip
+- pip-24.0.dist-info
