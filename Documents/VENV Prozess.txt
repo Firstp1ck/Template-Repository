@@ -11,13 +11,13 @@ venv\Scripts\deactivate
 rd /s /q venv
 
 :: Libs installieren:
-pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org python-dotenv Setuptools cx_Freeze
+pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --verbose python-dotenv Setuptools cx_Freeze
 
 :: Requirements erstellen:
 pip freeze > requirements.txt
 
 :: Requirements installieren:
-pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements.txt
+pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --verbose -r requirements.txt
 
 :: show outdated:
 pip list --outdated

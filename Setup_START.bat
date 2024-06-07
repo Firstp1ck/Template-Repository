@@ -49,7 +49,7 @@ for %%i in (%packages%) do (
 :: Wenn Pakete fehlen, führen Sie die Installation aus
 if "!install_needed!"=="true" (
     echo Einige Pakete fehlen. Beginne mit der Installation der fehlenden Pakete...
-    python -m pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org %packages%
+    python -m pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --verbose %packages%
     if "!errorlevel!" == "0" (
         echo Alle fehlenden Pakete wurden erfolgreich installiert.
     ) else (
