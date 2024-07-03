@@ -67,6 +67,7 @@ openai	                ::Openai (ChatGPT) API usage
 opencv	                ::image processing/computer vision
 openpyxl            	::working with Excel
 pandas              	::Working with Excel and Data
+polars			::Working with Excel and Data
 pdf2docx            	::PDF converter/data extraction to Word
 pillow	                ::Image recognition
 playwright	            ::Website interaction (Makros)
