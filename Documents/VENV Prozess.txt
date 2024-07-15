@@ -23,10 +23,7 @@ pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --verb
 pip list --outdated
 
 :: update all (PowerShell):
-pip list --outdated | Select-String -Pattern '^\S+' | ForEach-Object { $_ -replace ' .*$','' } | ForEach-Object { pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade $_ }
-
-:: update all (bash):
-pip list --outdated --format=freeze | cut -d '=' -f1 | xargs -n1 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade
+pip list --outdated --format=json | ConvertFrom-Json | ForEach-Object { $_.name } | ForEach-Object { pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade $_ }
 
 ::Check Python Version
 python --version
