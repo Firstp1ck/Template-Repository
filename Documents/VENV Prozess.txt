@@ -25,10 +25,19 @@ pip list --outdated
 :: update all (PowerShell):
 pip list --outdated --format=json | ConvertFrom-Json | ForEach-Object { $_.name } | ForEach-Object { pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade $_ }
 
+::Update Pip
+python.exe -m pip install --upgrade pip
+
 ::Check Python Version
 python --version
 ::Check Python locations
 where python
+
+::Look up current Version online
+winget search python
+
+::Update Python
+winget install Python.Python.3 --version &lt;3.12.4&gt;
 
 :: Creating a executable with pyinstaller:
 pip freeze > requirements.txt
