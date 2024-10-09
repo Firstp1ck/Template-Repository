@@ -8,7 +8,7 @@ python -m pip list > temp_pip_list.txt
 echo Liste der installierten Pakete wurde erfolgreich erstellt.
 
 :: Liste der benötigten Pakete
-set "packages=cx_Freeze setuptools python-dotenv"
+set "packages=cx_Freeze setuptools python-dotenv pyinstaller"
 
 :: Überprüfen, ob Pakete installiert sind, und markieren von fehlenden Paketen
 set "install_needed=false"

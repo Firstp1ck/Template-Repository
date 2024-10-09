@@ -4,6 +4,9 @@ python -m venv venv
 :: venv aktivieren:
 venv\Scripts\activate
 
+:: Change Directory to src to run Main.py
+cd .\src
+
 :: venv deactivieren:
 venv\Scripts\deactivate
 

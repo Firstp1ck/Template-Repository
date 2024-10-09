@@ -1,7 +1,15 @@
-root - INFO - Environment variables loaded successfully.
-root - INFO - Configuration file has been read successfully
-root - INFO - File validated and exists: Testing\Templates\Test_pdf_template.pdf
-root - INFO - File validated and exists: Testing\Templates\Test_word-template.docx
-root - INFO - File validated and exists: Testing\Data\Test_exceldata.xlsx
-root - INFO - File validated and exists: Testing\Data\Test_database.sqlite
-root - INFO - File validated and exists: Testing\Out\Test_Word_output.docx
+2024-10-09 16:25:30 - root - DEBUG - Logging initialized successfully
+2024-10-09 16:25:30 - root - INFO - Environment variables loaded successfully.
+2024-10-09 16:25:30 - root - INFO - Successfully fetched environment variable: API_KEY
+2024-10-09 16:25:30 - root - INFO - Successfully fetched environment variable: DATABASE_URL
+2024-10-09 16:25:30 - root - INFO - Successfully fetched environment variable: SECRET_KEY
+2024-10-09 16:25:30 - root - INFO - Configuration file has been read successfully
+2024-10-09 16:25:30 - root - INFO - File path 'Templates\pdf_template.pdf' validated.
+2024-10-09 16:25:30 - root - INFO - File path 'Templates\word_template.docx' validated.
+2024-10-09 16:25:30 - root - INFO - File path 'Data\exceldata.xlsx' validated.
+2024-10-09 16:25:30 - root - INFO - File path 'Data\database.sqlite' validated.
+2024-10-09 16:25:30 - root - INFO - File path 'Out\word_output.docx' validated.
+2024-10-09 16:25:30 - root - INFO - Attempting to connect to the database: Data\database.sqlite
+2024-10-09 16:25:30 - root - INFO - Database connection successful.
+2024-10-09 16:25:30 - root - INFO - Attempting to close the database connection.
+2024-10-09 16:25:30 - root - INFO - Database connection closed successfully.

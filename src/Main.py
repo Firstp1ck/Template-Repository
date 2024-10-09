@@ -1,60 +1,67 @@
 import configparser
 import logging
 import os
-from modules.Module_config import validate_file_path
-from modules.Module_env import load_environment_variables, get_env_variable
+import modules as m
 
-# Set up logging
-logging.basicConfig(filename='app.log', filemode='w', level=logging.DEBUG, format='%(name)s - %(levelname)s - %(message)s')
+def main():
+    # Set up logging
+    m.setup_logging()
 
-config = configparser.ConfigParser()
-config_file_path = r'src\config.ini' # relative path
+    config = configparser.ConfigParser()
+    config_file_path = r'config.ini' # relative path
 
-load_environment_variables()
-api_key = get_env_variable('API_KEY')
-database_url = get_env_variable('DATABASE_URL')
-secret_key = get_env_variable('SECRET_KEY')
+    m.load_environment_variables()
+    required_env_vars = ['API_KEY', 'DATABASE_URL', 'SECRET_KEY']
 
-if api_key and database_url and secret_key:
-    print(f"API Key: {api_key}")
-    print(f"Database URL: {database_url}")
-    print(f"Secret Key: {secret_key}")
-else:
-    logging.error("One or more environment variables are missing.")
+    # Fetch multiple environment variables
+    env_vars = m.get_multiple_env_variables(required_env_vars)
 
-# Read and process the configuration
-try:
-    if not os.path.exists(config_file_path):
-        logging.error(f"Configuration file not found at {config_file_path}")
-        raise FileNotFoundError(f"Configuration file not found at {config_file_path}")
-    
-    config.read(config_file_path)
-    logging.info("Configuration file has been read successfully")
+    # Log the result
+    if all(env_vars.values()):  # only if all required env vars are present and not empty
+        print(f"API Key: {m.mask_sensitive_value(env_vars['API_KEY'])}")
+        print(f"Database URL: {env_vars['DATABASE_URL']}")
+        print(f"Secret Key: {m.mask_sensitive_value(env_vars['SECRET_KEY'])}")
+    else:
+        logging.error("One or more environment variables are missing. Please check them.")
 
-    # Retrieve paths from the config and validate each
-    pdf_form = config['paths']['PDF_FORM']
-    validate_file_path(pdf_form)
-    print(pdf_form)
+    # Read and process the configuration
+    try:
+        if not os.path.exists(config_file_path):
+            logging.error(f"Configuration file not found at {config_file_path}")
+            raise FileNotFoundError(f"Configuration file not found at {config_file_path}")
+        
+        config.read(config_file_path)
+        logging.info("Configuration file has been read successfully")
 
-    word_form = config['paths']['WORD_FORM']
-    validate_file_path(word_form)
-    print(word_form)
+        # Define the keys to validate
+        path_keys = ['PDF_FORM', 'WORD_FORM', 'INPUT_EXCEL', 'INPUT_DB', 'OUTPUT']
 
-    input_excel = config['paths']['INPUT_EXCEL']
-    validate_file_path(input_excel)
-    print(input_excel)
+        # Validate paths and print them
+        m.validate_and_print_paths(config, 'paths', path_keys)
 
-    input_db = config['paths']['INPUT_DB']
-    validate_file_path(input_db)
-    print(input_db)
+    except KeyError as e:
+        logging.error(f"Missing section or key in configuration file: {e}")
+        raise
+    except configparser.Error as e:
+        logging.error(f"Error parsing the configuration file: {e}")
+        raise
 
-    output = config['paths']['OUTPUT']
-    validate_file_path(output)
-    print(output)
+        # Retrieve the database path
+    db_path = config['paths'].get('INPUT_DB')
 
-except KeyError as e:
-    logging.error(f"Missing section or key in configuration file: {e}")
-    raise
-except configparser.Error as e:
-    logging.error(f"Error parsing the configuration file: {e}")
-    raise
+    if db_path:
+        # Connect to the database
+        connection = m.connect_to_db(db_path)
+        
+        if connection:
+            # Perform database operations...
+        
+            # Close the database once done
+            m.close_connection(connection)
+        else:
+            print("Failed to connect to the database.")
+    else:
+        print("Database path not found in configuration.")
+
+if __name__ == "__main__":
+    main()
