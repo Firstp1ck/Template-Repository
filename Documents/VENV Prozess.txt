@@ -7,6 +7,9 @@ venv\Scripts\activate
 :: Change Directory to src to run Main.py
 cd .\src
 
+::Start Programm
+python Main.py
+
 :: venv deactivieren:
 venv\Scripts\deactivate
 
