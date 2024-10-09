@@ -45,9 +45,15 @@ winget install Python.Python.3 --version &lt;3.12.4&gt;
 :: Creating a executable with pyinstaller:
 pip freeze > requirements.txt
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pyinstaller
+:: Standard
+pyinstaller Main.py
+
+::Options
 pyinstaller --onefile Main.py 
 or
 pyinstaller --onedir Main.py
+
+::Folders (Template, Out and Data), .env and config.ini file have to be added to Main.exe folder.
 
 :: Creating a executable with cx_Freeze:
 - add Main.py to build.py
@@ -61,6 +67,7 @@ pyinstaller --onedir Main.py
 Setuptools
 python-dotenv
 pyinstaller
+cx_Freeze
 
 :: most used Libs:
 bcrypt                  ::Hashing
