@@ -8,7 +8,7 @@ def main():
     m.setup_logging()
 
     config = configparser.ConfigParser()
-    config_file_path = r'config.ini' # relative path
+    config_file_path = r'src\config.ini' # relative path
 
     m.load_environment_variables()
     required_env_vars = ['API_KEY', 'DATABASE_URL', 'SECRET_KEY']
