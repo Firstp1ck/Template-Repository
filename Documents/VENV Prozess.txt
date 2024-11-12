@@ -17,7 +17,7 @@ venv\Scripts\deactivate
 rd /s /q venv
 
 :: Libs installieren:
-pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --verbose python-dotenv Setuptools
+pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --verbose python-dotenv Setuptools pyinstaller
 
 :: Requirements erstellen:
 pip freeze > requirements.txt
@@ -70,7 +70,6 @@ pyinstaller --onedir Main.py
 Setuptools
 python-dotenv
 pyinstaller
-cx_Freeze
 
 :: most used Libs:
 bcrypt                  ::Hashing
