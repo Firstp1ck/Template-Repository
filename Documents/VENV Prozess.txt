@@ -1,8 +1,14 @@
 :: .env erstellen:
 python -m venv venv
 
-:: venv aktivieren:
+:: venv aktivieren (Windows):
 venv\Scripts\activate
+
+:: venv aktivieren (Linux - Bash):
+source venv/bin/activate
+
+:: venv aktivieren (Linux - Fish):
+source venv/bin/activate.fish
 
 :: Change Directory to src to run Main.py
 cd .\src
@@ -13,8 +19,14 @@ python Main.py
 :: venv deactivieren:
 venv\Scripts\deactivate
 
-:: venv löschen:
+:: venv deaktivieren (Linux - Bash):
+source venv/bin/deactivate
+
+:: venv löschen (Windows):
 rd /s /q venv
+
+:: venv löschen (Linux):
+rm -rf venv/
 
 :: Libs installieren:
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --verbose python-dotenv Setuptools pyinstaller
