@@ -1,8 +1,11 @@
 :: .env erstellen:
 python -m venv venv
 
-:: venv aktivieren (Windows):
+:: venv aktivieren (Windows - CMD):
 venv\Scripts\activate
+
+:: venv aktivieren (Windows - Bash):
+source venv/Scripts/activate
 
 :: venv aktivieren (Linux - Bash):
 source venv/bin/activate
@@ -16,7 +19,7 @@ cd .\src
 ::Start Programm
 python Main.py
 
-:: venv deactivieren:
+:: venv deactivieren (Windows):
 venv\Scripts\deactivate
 
 :: venv deaktivieren (Linux - Bash):
