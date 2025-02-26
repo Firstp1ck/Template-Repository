@@ -74,6 +74,9 @@ pyinstaller --onefile Main.py
 or
 pyinstaller --onedir Main.py
 
+::Add Details
+pyinstaller Main.spec #After creating the first .exe file
+
 ::Folders (Template, Out and Data), .env and config.ini file have to be added to Main.exe folder.
 
 :: Creating a executable with cx_Freeze:
